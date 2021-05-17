@@ -22,7 +22,7 @@ jobs:
       - name: Install webapp dependencies
         run: npm install
       - name: Build Webapp
-        run: npm build
+        run: npm run build
         env:
           CI: ""
       - name: Deploy to Firebase
