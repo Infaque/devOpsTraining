@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
@@ -16,7 +16,7 @@ jobs:
       - name: Update Environment Variable
         uses: w9jds/firebase-action@master
         with:
-          args: env
+          args: functions:config:set myenv.location="${{ secrets.SECRET_LOCATION }}"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}        
       - name: Install webapp dependencies
